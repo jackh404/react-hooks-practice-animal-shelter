@@ -20,6 +20,11 @@ function App() {
     setPets(filteredPets)
   }
 
+  const onAdoptPet = (id) => {
+    const updatedPets = pets.map(pet=>pet.id===id?{...pet, isAdopted:true}:pet)
+    setPets(updatedPets)
+  }
+
   return (
     <div className="ui container">
       <header>
@@ -37,7 +42,7 @@ function App() {
           <div className="twelve wide column">
             <PetBrowser 
             pets={pets}
-            setPets={setPets}/>
+            onAdoptPet={onAdoptPet}/>
           </div>
         </div>
       </div>
